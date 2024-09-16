@@ -9,6 +9,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
@@ -25,11 +27,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-                http
-                .requestMatchers()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/actuator/**", "/api-docs/**").permitAll()
-                .antMatchers("/springjwt/**" ).authenticated();
+        http
+                .requestMatchers(matchers -> matchers
+                        .authorizeRequests(requests -> requests
+                                .requestMatchers("/actuator/**", "/api-docs/**").permitAll()
+                                .requestMatchers("/springjwt/**").authenticated()));
     }
 }
