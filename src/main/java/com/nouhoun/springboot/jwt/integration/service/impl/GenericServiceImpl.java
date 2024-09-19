@@ -6,7 +6,6 @@ import com.nouhoun.springboot.jwt.integration.repository.RandomCityRepository;
 import com.nouhoun.springboot.jwt.integration.repository.UserRepository;
 import com.nouhoun.springboot.jwt.integration.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -17,7 +16,6 @@ import java.util.List;
 public class GenericServiceImpl implements GenericService {
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private RandomCityRepository randomCityRepository;
 

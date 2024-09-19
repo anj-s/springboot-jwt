@@ -4,9 +4,7 @@ Following instructions explain how to publish springboot-jwt tutorial APIs via a
 
 ### Pre-requisites
 You need to have:
-- a Docker installation available locally. See [Docker website](https://docs.docker.com/install/) on installation instructions for Windows and Linux users.
-- at least 100MB of local storage.
-- springboot-jwt project sources locally compiled, and shell pointing to project root.
+- a Docker installation available locally. See installation instructions for your OS on the [Docker website](https://docs.docker.com/install/).
 
 
 ### Build image
