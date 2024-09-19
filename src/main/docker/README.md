@@ -1,4 +1,4 @@
-## SpringBoot JWT Container
+# SpringBoot JWT Container
 
 Following instructions explain how to publish springboot-jwt tutorial APIs via a portable Docker container.
 

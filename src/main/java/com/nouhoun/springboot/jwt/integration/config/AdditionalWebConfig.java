@@ -22,10 +22,10 @@ public class AdditionalWebConfig {
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("*");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        config.setAllowCredentials(true); //Consider the security implications
+        config.addAllowedOrigin("*"); //Consider the security implications
+        config.addAllowedHeader("*"); //Consider the security implications
+        config.addAllowedMethod("*"); //Consider the security implications
         source.registerCorsConfiguration("/**", config);
         FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(0);
