@@ -80,7 +80,7 @@ goto error
 
 :init
 
-@REM Find the project base dir, i.e. the directory that contains the folder ".mvn".
+@REM Find the project base dir, i.e. the directory that contains the file ".mvn\wrapper\maven-wrapper.properties".
 @REM Fallback to current working directory if not found.
 
 set MAVEN_PROJECTBASEDIR=%MAVEN_BASEDIR%
@@ -89,7 +89,7 @@ IF NOT "%MAVEN_PROJECTBASEDIR%"=="" goto endDetectBaseDir
 set EXEC_DIR=%CD%
 set WDIR=%EXEC_DIR%
 :findBaseDir
-IF EXIST "%WDIR%"\.mvn goto baseDirFound
+IF EXIST "%WDIR%\.mvn\wrapper\maven-wrapper.properties" goto baseDirFound
 cd ..
 IF "%WDIR%"=="%CD%" goto baseDirNotFound
 set WDIR=%CD%

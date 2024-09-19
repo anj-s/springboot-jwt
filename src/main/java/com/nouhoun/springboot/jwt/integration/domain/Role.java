@@ -2,7 +2,6 @@ package com.nouhoun.springboot.jwt.integration.domain;
 
 import javax.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Created by nydiarra on 06/05/17.
@@ -10,7 +9,6 @@ import lombok.Setter;
 @Entity
 @Table(name="app_role")
 @Getter
-@Setter
 public class Role {
     private static final long serialVersionUID = 1L;
     @Id
