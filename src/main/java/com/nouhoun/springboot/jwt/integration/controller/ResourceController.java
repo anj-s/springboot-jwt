@@ -1,5 +1,7 @@
 package com.nouhoun.springboot.jwt.integration.controller;
 
+import java.util.List;
+
 import com.nouhoun.springboot.jwt.integration.domain.RandomCity;
 import com.nouhoun.springboot.jwt.integration.domain.User;
 import com.nouhoun.springboot.jwt.integration.service.GenericService;

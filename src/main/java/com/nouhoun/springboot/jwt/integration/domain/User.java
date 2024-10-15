@@ -2,7 +2,9 @@ package com.nouhoun.springboot.jwt.integration.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
-import org.hibernate.validator.constraints.NotEmpty;
+import lombok.Setter;
+// import jakarta.validation.constraints.NotEmpty;
+
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "app_user")
 @Getter
+@Setter
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
