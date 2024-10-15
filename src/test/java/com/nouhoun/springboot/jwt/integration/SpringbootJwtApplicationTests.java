@@ -1,16 +1,12 @@
 package com.nouhoun.springboot.jwt.integration;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@RunWith(SpringRunner.class)
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SpringbootJwtApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
-
+public class SpringbootJwtApplicationTests {\n\n\t@Test\n\tpublic void contextLoads() {\n\t}\n\n}
 }

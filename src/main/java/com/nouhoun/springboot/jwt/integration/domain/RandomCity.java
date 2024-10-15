@@ -1,9 +1,7 @@
 package com.nouhoun.springboot.jwt.integration.domain;
-
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 /**
  * Created by nydiarra on 10/05/17.
  */

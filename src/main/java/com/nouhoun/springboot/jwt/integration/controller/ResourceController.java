@@ -24,7 +24,16 @@ public class ResourceController {
     @RequestMapping(value ="/cities")
     @PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER')")
     public List<RandomCity> getUser(){
+    public List<RandomCity> getUser(){
         return userService.findAllRandomCities();
+    }
+
+    @RequestMapping(value ="/users", method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('ADMIN_USER')")
+    public List<User> getUsers(){
+        return userService.findAllUsers();
+    }
+}
     }
 
     @RequestMapping(value ="/users", method = RequestMethod.GET)
