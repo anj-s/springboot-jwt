@@ -37,7 +37,7 @@ public class User {
     /**
      * Roles are being eagerly loaded here because
      * they are a fairly small collection of items for this example.
-     */
+     **/
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns
             = @JoinColumn(name = "user_id",
@@ -46,4 +46,3 @@ public class User {
                     referencedColumnName = "id"))
     private List<Role> roles;
 }
-
