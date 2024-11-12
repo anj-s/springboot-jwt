@@ -57,7 +57,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
 		configurer
 				.inMemory().withClient(clientId).secret(passwordEncoder.encode(clientSecret)).authorizedGrantTypes(grantType).scopes(scopeRead, scopeWrite)
-						.resourceIds(resourceIds).accessTokenValiditySeconds(1800).refreshTokenValiditySeconds(50000);
+						.resourceIds(resourceIds).accessTokenValiditySeconds(3600).refreshTokenValiditySeconds(2592000);
 	}
 
 	@Override
