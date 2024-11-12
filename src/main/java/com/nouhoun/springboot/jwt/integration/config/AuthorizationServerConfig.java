@@ -56,12 +56,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
 		configurer
-                .inMemory()
-                .withClient(clientId)
-				.secret(passwordEncoder.encode(clientSecret))
-                .authorizedGrantTypes(grantType)
-                .scopes(scopeRead, scopeWrite)
-                .resourceIds(resourceIds);
+				.inMemory().withClient(clientId).secret(passwordEncoder.encode(clientSecret))
+						.authorizedGrantTypes(grantType).scopes(scopeRead, scopeWrite)
+						.resourceIds(resourceIds);
 	}
 
 	@Override
@@ -70,8 +67,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		enhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
 		endpoints.tokenStore(tokenStore)
                 .accessTokenConverter(accessTokenConverter)
-                .tokenEnhancer(enhancerChain)
-                .authenticationManager(authenticationManager);
+                .authenticationManager(authenticationManager)
+				.tokenEnhancer(enhancerChain);
 	}
 
 }
