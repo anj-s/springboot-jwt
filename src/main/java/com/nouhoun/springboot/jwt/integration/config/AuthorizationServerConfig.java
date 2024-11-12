@@ -56,8 +56,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
 		configurer
-				.inMemory().withClient(clientId).secret(passwordEncoder.encode(clientSecret)).authorizedGrantTypes(grantType)
-						.scopes(scopeRead, scopeWrite).resourceIds(resourceIds).accessTokenValiditySeconds(1800);
+				.inMemory().withClient(clientId).secret(passwordEncoder.encode(clientSecret)).authorizedGrantTypes(grantType).scopes(scopeRead, scopeWrite)
+						.resourceIds(resourceIds).accessTokenValiditySeconds(1800).refreshTokenValiditySeconds(50000);
 	}
 
 	@Override
