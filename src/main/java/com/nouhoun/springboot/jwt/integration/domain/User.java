@@ -3,7 +3,7 @@ package com.nouhoun.springboot.jwt.integration.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -46,4 +46,3 @@ public class User {
                     referencedColumnName = "id"))
     private List<Role> roles;
 }
-
