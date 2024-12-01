@@ -23,6 +23,7 @@ public class AppUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        // Find the user by username
         User user = userRepository.findByUsername(s);
 
         if(user == null) {

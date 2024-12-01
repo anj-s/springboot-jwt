@@ -23,6 +23,7 @@ import java.beans.PropertyVetoException;
  * Created by nydiarra on 06/05/17.
  */
 @Configuration
+// Enables transaction management
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.nouhoun.springboot.jwt.integration.repository")
 public class DatasourceConfig {
@@ -30,6 +31,7 @@ public class DatasourceConfig {
     @Bean
     public DataSource datasource() throws PropertyVetoException {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        // Creates an embedded database using H2 with schema and data scripts
         EmbeddedDatabase dataSource = builder
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("sql-scripts/schema.sql")
@@ -40,6 +42,7 @@ public class DatasourceConfig {
     }
 
     @Bean
+    // Creates a LocalContainerEntityManagerFactoryBean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Qualifier("datasource") DataSource ds) throws PropertyVetoException{
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(ds);
@@ -50,6 +53,7 @@ public class DatasourceConfig {
     }
 
     @Bean
+    // Creates a PlatformTransactionManager
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);

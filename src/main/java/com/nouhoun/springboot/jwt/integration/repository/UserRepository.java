@@ -6,7 +6,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * Created by nydiarra on 06/05/17.
- */
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long>, PagingAndSortingRepository<User, Long> {
+    // This method finds a user by their username
+    User findByUsername(String username);
     User findByUsername(String username);
 }

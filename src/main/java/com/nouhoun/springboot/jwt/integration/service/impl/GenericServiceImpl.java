@@ -12,12 +12,12 @@ import java.util.List;
 
 /**
  * Created by nydiarra on 07/05/17.
- */
+@Service // Mark this class as a service
 @Service
-public class GenericServiceImpl implements GenericService {
+    @Autowired // Autowire the UserRepository
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired // Autowire the RandomCityRepository
     @Autowired
     private RandomCityRepository randomCityRepository;
 

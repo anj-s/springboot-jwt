@@ -6,5 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by nydiarra on 10/05/17.
  */
+// Interface for RandomCity repository
 public interface RandomCityRepository extends CrudRepository<RandomCity, Long> {
 }

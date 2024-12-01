@@ -6,5 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by nydiarra on 06/05/17.
  */
+// Define the RoleRepository interface which extends CrudRepository
 public interface RoleRepository extends CrudRepository<Role, Long> {
 }
