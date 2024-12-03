@@ -1,6 +1,7 @@
 package com.nouhoun.springboot.jwt.integration.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,11 +26,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-                http
                 .requestMatchers()
-                .and()
+                .authorizeRequests()
                 .authorizeRequests()
                 .antMatchers("/actuator/**", "/api-docs/**").permitAll()
-                .antMatchers("/springjwt/**" ).authenticated();
-    }
-}
+                .antMatchers("/springjwt/**" ).authenticated()
+                //.oauth2ResourceServer()
