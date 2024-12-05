@@ -1,6 +1,7 @@
 package com.nouhoun.springboot.jwt.integration.config;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
 /**
  * Created by nydiarra on 06/05/17.
@@ -47,6 +49,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
 	private JwtAccessTokenConverter accessTokenConverter;
 
+	@Value("${security.jwt.keystore.name}")
+	private String keyStoreName;
+
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -67,6 +72,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
+		/*
+		KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(
+				new ClassPathResource(keyStoreName), "secret".toCharArray());
+		*/
 		enhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
 		endpoints.tokenStore(tokenStore)
 		        .accessTokenConverter(accessTokenConverter)
