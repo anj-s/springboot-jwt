@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by nydiarra on 07/05/17.
+ *
  */
 @Service
 public class GenericServiceImpl implements GenericService {
