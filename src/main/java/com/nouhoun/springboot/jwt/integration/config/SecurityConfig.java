@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * Created by nydiarra on 06/05/17.
@@ -67,7 +66,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public TokenStore tokenStore() {
-		return new JwtTokenStore(accessTokenConverter());
+		JwtTokenStore tokenStore = new JwtTokenStore(accessTokenConverter());
+		// tokenStore.setTrustManagers(SSLContext.getDefault().getTrustManagers());
+		// tokenStore.setTrustStore(new ClassPathResource("truststore.jks"));
 	}
 
 	@Bean

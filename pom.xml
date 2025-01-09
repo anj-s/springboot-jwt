@@ -112,7 +112,7 @@
  		        <configuration>
 		          <images>
 			            <image>
-			              <name>springboot-jwt</name>
+			              <name>springboot-jwt:latest</name>
 			              <alias>springboot-jwt</alias>
 			              <build>
 			                <filter>@</filter>
@@ -126,12 +126,12 @@
 			                <ports> 
 			                  <port>${tomcat.port}:8080</port>
 			                </ports>
-					         <wait> 
-					           <http>
-					              <url>http://${tomcat.ip}:${tomcat.port}/actuator/health</url>
-					           </http>
-					           <time>90000</time>
-					         </wait>
+			                <wait>
+			                  <http>
+			                    <url>http://${tomcat.ip}:${tomcat.port}/actuator/health</url>
+			                  </http>
+			                  <time>90000</time>
+			                </wait>
 			              </run>
 			            </image>
 		          </images>
