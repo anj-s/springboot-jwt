@@ -29,10 +29,6 @@ public class DatasourceConfig {
 
     @Bean
         EmbeddedDatabase dataSource = builder.build();
-        EmbeddedDatabase dataSource = builder.
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript("sql-scripts/schema.sql").
-                addScript("sql-scripts/data.sql").
                 .build();
 
     @Bean(name = "datasource")
