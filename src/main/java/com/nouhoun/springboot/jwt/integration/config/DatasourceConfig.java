@@ -33,9 +33,9 @@ public class DatasourceConfig {
         EmbeddedDatabase dataSource = builder
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("sql-scripts/schema.sql")
-                .addScript("sql-scripts/data.sql")
-                .build();
-
+           .setType(EmbeddedDatabaseType.H2)
+           .addScript("sql-scripts/schema.sql")
+           .addScript("sql-scripts/data.sql")
         return dataSource;
     }
 
@@ -50,9 +50,9 @@ public class DatasourceConfig {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory);
+       JpaTransactionManager transactionManager = new JpaTransactionManager();
+       transactionManager.setEntityManagerFactory(entityManagerFactory);
+       return transactionManager;
         return transactionManager;
     }
 }
