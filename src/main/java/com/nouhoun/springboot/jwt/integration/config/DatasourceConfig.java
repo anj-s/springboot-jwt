@@ -49,5 +49,4 @@ public class DatasourceConfig {
     private PlatformTransactionManager transactionManager() {
         PlatformTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory.getObject());
-        return transactionManager;
     }
