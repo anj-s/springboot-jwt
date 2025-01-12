@@ -27,18 +27,14 @@ import java.beans.PropertyVetoException;
 @EnableJpaRepositories(basePackages = "com.nouhoun.springboot.jwt.integration.repository")
 public class DatasourceConfig {
 
-    @Bean
-        EmbeddedDatabase dataSource = builder.build();
-                .build();
-
     @Bean(name = "datasource")
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        EmbeddedDatabase dataSource = builder.
+        EmbeddedDatabase dataSource = builder
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("sql-scripts/schema.sql").
-                .addScript("sql-scripts/data.sql").
-                .build();
+                .addScript("sql-scripts/schema.sql")
+                .addScript("sql-scripts/data.sql")
+
         return dataSource;
     }
     /*DataSource dataSource() {
