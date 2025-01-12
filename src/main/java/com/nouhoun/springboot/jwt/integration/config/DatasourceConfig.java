@@ -30,10 +30,10 @@ public class DatasourceConfig {
     @Bean
     public DataSource datasource() throws PropertyVetoException {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        EmbeddedDatabase dataSource = builder
+        EmbeddedDatabase dataSource = builder.
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("sql-scripts/schema.sql")
-                .addScript("sql-scripts/data.sql")
+                .addScript("sql-scripts/schema.sql").
+                addScript("sql-scripts/data.sql").
                 .build();
 
         return dataSource;
@@ -42,17 +42,17 @@ public class DatasourceConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Qualifier("datasource") DataSource ds) throws PropertyVetoException{
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setDataSource(ds);
-        entityManagerFactory.setPackagesToScan(new String[]{"com.nouhoun.springboot.jwt.integration.domain"});
+        entityManagerFactory.setDataSource(ds).
+        setPackagesToScan(new String[]{"com.nouhoun.springboot.jwt.integration.domain"});
         JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
-        entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
+        entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter).
         return entityManagerFactory;
     }
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory);
+        transactionManager.setEntityManagerFactory(entityManagerFactory).
         return transactionManager;
     }
 }
