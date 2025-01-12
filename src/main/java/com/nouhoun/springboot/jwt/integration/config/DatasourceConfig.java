@@ -36,6 +36,7 @@ public class DatasourceConfig {
                 .addScript("sql-scripts/schema.sql")
                 .addScript("sql-scripts/data.sql")
     }
+        return dataSource;
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Qualifier("datasource") DataSource ds) throws PropertyVetoException{
