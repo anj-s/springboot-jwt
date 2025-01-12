@@ -28,8 +28,7 @@ import java.beans.PropertyVetoException;
 public class DatasourceConfig {
 
     @Bean
-    public DataSource datasource() throws PropertyVetoException {
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase dataSource = builder.build();
         EmbeddedDatabase dataSource = builder.
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("sql-scripts/schema.sql").
