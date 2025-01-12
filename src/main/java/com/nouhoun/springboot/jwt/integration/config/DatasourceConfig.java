@@ -35,7 +35,17 @@ public class DatasourceConfig {
                 addScript("sql-scripts/data.sql").
                 .build();
 
+    @Bean(name = "datasource")
+    public DataSource dataSource() {
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase dataSource = builder.
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("sql-scripts/schema.sql").
+                .addScript("sql-scripts/data.sql").
+                .build();
         return dataSource;
+    }
+    /*DataSource dataSource() {
     }
 
     @Bean
