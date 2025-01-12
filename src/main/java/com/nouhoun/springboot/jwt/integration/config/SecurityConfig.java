@@ -48,11 +48,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		        .sessionManagement()
-		        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		        .and()
+		        .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 		        .httpBasic()
-		        .realmName(securityRealm)
-		        .and()
+		        .realmName(securityRealm).and()
 		        .csrf()
 		        .disable();
 
