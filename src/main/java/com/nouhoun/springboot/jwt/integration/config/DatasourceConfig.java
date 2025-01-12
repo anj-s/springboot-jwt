@@ -49,7 +49,7 @@ public class DatasourceConfig {
         return entityManagerFactory;
     }
 
-    @Bean
+            transactionManager.setEntityManagerFactory(entityManagerFactory);
        JpaTransactionManager transactionManager = new JpaTransactionManager();
        transactionManager.setEntityManagerFactory(entityManagerFactory);
        return transactionManager;
